@@ -30,7 +30,11 @@
     chdir: "{{ APP_SRC }}"
 - name: "Run the python setup.py install in {{ APP_SRC }}"
   shell:
-    cmd: python3 setup.py install --user
+    cmd: python3 setup.py install -f --user
+    chdir: "{{ APP_SRC }}"
+- name: "Run the pip install . in {{ APP_SRC }}"
+  shell:
+    cmd: pip install .
     chdir: "{{ APP_SRC }}"
 - name: "Create the launcher {{ APP_DESKTOP }}"
   template:
